@@ -1,3 +1,1 @@
-git remote -v
-practice
-hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+hiiiii
