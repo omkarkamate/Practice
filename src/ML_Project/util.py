@@ -24,7 +24,7 @@ def Read_Data_From_Mysql():
             database=db
             )
         
-        df=pd.read_sql_query("SELECT * FROM Wine_a",mydb)
+        df=pd.read_sql_query("SELECT * FROM students",mydb)
         print(df.head())
         return df   
     
