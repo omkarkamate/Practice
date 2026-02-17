@@ -75,6 +75,7 @@ class Data_Processing:
             with open(self.data_processing_config.processed_data_path,"wb") as f:
                 pickle.dump((train_df,test_df),f)
             logging.info("Data processing completed")
+            return X_train,y_train,X_test,y_test
         except Exception as e:
             raise CustomException(e,sys)
         

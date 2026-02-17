@@ -1,0 +1,5 @@
+2026-02-17 17:29:41,826 - INFO - Logger initialized successfully
+2026-02-17 17:30:05,798 - INFO - Data processing initiated
+2026-02-17 17:30:05,863 - INFO - Data processing completed
+2026-02-17 17:30:05,864 - INFO - Model training initiated
+2026-02-17 17:30:10,160 - INFO - Best model found on both training and testing dataset is Linear Regression with r2 score of 0.8654712404785263
