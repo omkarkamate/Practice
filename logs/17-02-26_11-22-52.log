@@ -1,0 +1,6 @@
+2026-02-17 11:22:52,720 - INFO - Logger initialized successfully
+2026-02-17 11:22:54,027 - INFO - Entered the data ingestion method
+2026-02-17 11:22:54,030 - INFO - Read the dataset from mysql
+2026-02-17 11:22:54,033 - INFO - Saved the raw data to artifacts folder
+2026-02-17 11:22:54,040 - INFO - Split the data into train and test and saved it to artifacts folder
+2026-02-17 11:22:54,060 - INFO - Data processing initiated

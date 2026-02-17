@@ -30,3 +30,4 @@ def Read_Data_From_Mysql():
     
     except Exception as e:
         raise CustomException(e,sys)   
+    

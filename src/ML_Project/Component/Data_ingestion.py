@@ -5,6 +5,7 @@ from src.ML_Project.logger import logging
 from src.ML_Project.util import Read_Data_From_Mysql
 from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
+import pandas as pd
 
 @dataclass
 class DataIngestionConfig:
@@ -18,7 +19,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method")
         try:
-            df=Read_Data_From_Mysql()
+            df=pd.read_csv(os.path.join("Notebook","data","raw.csv"))
             logging.info("Read the dataset from mysql")
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True) 
             df.to_csv(self.ingestion_config.raw_data_path,index=False)
