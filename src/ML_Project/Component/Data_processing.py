@@ -73,10 +73,9 @@ class Data_Processing:
             test_df=np.c_[X_test,np.array(y_test)]
 
             with open(self.data_processing_config.processed_data_path,"wb") as f:
-                pickle.dump((train_df,test_df),f)
+                pickle.dump(preprocessor,f)
             logging.info("Data processing completed")
             return X_train,y_train,X_test,y_test
         except Exception as e:
             raise CustomException(e,sys)
-        
         

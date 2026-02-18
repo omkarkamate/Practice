@@ -6,13 +6,41 @@ import os
 import pandas as pd
 from src.ML_Project.Component.Data_processing import Data_Processing
 from src.ML_Project.Component.Model_Training import Model_Training
-if __name__=="__main__":
+import pickle
+
+
+
+if __name__ == "__main__":
     try:
-        # data_ingestion=DataIngestion()
-        # data_ingestion.initiate_data_ingestion()
-        data_processing=Data_Processing()
-        X_train,y_train,X_test,y_test=data_processing.data_priprocessing(train_path=os.path.join("artifacts","train_df.csv"),test_path=os.path.join("artifacts","test_df.csv"))
-        model_training=Model_Training()
-        model_training.initiate_model_training(X_train,y_train,X_test,y_test)
+        with open("artifacts/Processed_data.pkl", "rb") as file:
+            preprocessor = pickle.load(file)
+
+        data = {}
+        data["gender"]=[input("Enter gender :")]
+        data["race/ethnicity"] = [input("Enter race/ethnicity :")]
+        data["parental level of education"] = [input("Enter parental level of education :")]
+        data["lunch"] = [input("Enter lunch type :")]
+        data["test preparation course"] = [input("Enter test preparation course :")]
+        data["reading score"] = [int(input("Enter reading score :"))]
+        data["writing score"] = [int(input("Enter writing score :"))]
+
+        
+
+        df = pd.DataFrame(data)
+
+        # print("Original Input DataFrame:")
+        # print(df)
+
+        df_preprocessed = preprocessor.transform(df)
+
+        # print("\nPreprocessed Output:")
+        # print(df_preprocessed)
+        
+        with open("artifacts/trained_Model.pkl", "rb") as file:
+            model = pickle.load(file)
+
+        prediction = model.predict(df_preprocessed)
+        print(f"Predicted writing score: {prediction[0]}")
+
     except Exception as e:
-        raise CustomException(e,sys)
+        raise CustomException(e, sys)
